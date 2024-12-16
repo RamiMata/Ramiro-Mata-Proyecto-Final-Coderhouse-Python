@@ -1,0 +1,23 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+<h1>Lista de Publicaciones</h1>
+
+{% if user.is_authenticated and user.is_staff %}
+    <a href="{% url 'crear_post' %}" class="btn btn-success">Crear Nueva Publicación</a>
+{% endif %}
+
+<ul>
+    {% for post in publicaciones %}
+        <li>
+            {% if user.is_authenticated and user.is_staff %}
+                <a href="{% url 'post_detail' post.pk %}">{{ post.titulo }}</a>
+            {% else %}
+                <a href="{% url 'post_detail_user' post.pk %}">{{ post.titulo }}</a>
+            {% endif %}
+        </li>
+    {% endfor %}
+</ul>
+{% endblock %}
+
+

@@ -1,0 +1,9 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+<h1>Acerca de mí</h1>
+<p>Hola, mi nombre es <strong>Ramiro Mata</strong>. Esta página es un proyecto final del curso de Python dictado por <strong>Coderhouse</strong>.</p>
+<p>El propósito de este blog es aprender y demostrar los conocimientos adquiridos en el desarrollo web utilizando el framework <strong>Django</strong>.</p>
+<p>¡Gracias por visitar mi proyecto!</p>
+<a href="{% url 'index' %}">Volver al inicio</a>
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+<h1>Información del Usuario</h1>
+<form method="post">
+    {% csrf_token %}
+    {{ user_form.as_p }}
+    <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+</form>
+<a href="{% url 'profile_details_view' %}">Ver Información de Perfil</a>
+
+
+<h2>Información Actual del Usuario</h2>
+<p><strong>Correo Electrónico:</strong> {{ request.user.email }}</p>
+<p><strong>Nombre:</strong> {{ request.user.first_name }}</p>
+<p><strong>Apellido:</strong> {{ request.user.last_name }}</p>
+
+{% endblock %}

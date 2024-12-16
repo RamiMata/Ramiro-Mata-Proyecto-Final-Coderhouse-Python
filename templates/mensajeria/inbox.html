@@ -1,0 +1,10 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+<h2>Bandeja de Entrada</h2>
+<ul>
+    {% for message in messages %}
+    <li>De {{ message.sender }}: {{ message.content }}</li>
+    {% endfor %}
+</ul>
+{% endblock %}

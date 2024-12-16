@@ -1,0 +1,10 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+<div class="container text-center" style="margin-top: 50px;">
+    <h1>Error 404</h1>
+    <p class="text-danger">La página que estás buscando no existe.</p>
+    <p><strong>No hay páginas aún</strong>. O haz clic en el enlace de abajo para volver al inicio.</p>
+    <a href="{% url 'index' %}" class="btn btn-primary">Volver al Inicio</a>
+</div>
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+<h1>Información del Perfil</h1>
+
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ profile_form.as_p }}
+    <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+</form>
+
+{% if profile_form.instance.avatar %}
+    <h2>Avatar Actual</h2>
+    <img src="{{ profile_form.instance.avatar.url }}" alt="Avatar" style="max-width: 200px;">
+{% else %}
+    <p>No hay avatar disponible.</p>
+{% endif %}
+
+{% endblock %}

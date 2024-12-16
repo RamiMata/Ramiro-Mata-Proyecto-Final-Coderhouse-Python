@@ -1,0 +1,43 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+{% block content %}
+<header class="masthead" style="background-image: url('{% static "assets/img/Fondo.jpg" %}')">
+    <div class="container position-relative px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-md-10 col-lg-8 col-xl-7">
+                <div class="site-heading">
+                    <h1>Blog de la Organizacion de Naciones Unidas(ONU)</h1>
+                    <span class="subheading">Un espacio para compartir informacion y hablar sobre la ONU</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<div class="container px-4 px-lg-5">
+    <div class="row gx-4 gx-lg-5 justify-content-center">
+        <div class="col-md-10 col-lg-8 col-xl-7">
+            {% for post in posts %}
+            <div class="post-preview">
+                <a href="{% url 'post_detail' post.pk %}">
+                    <h2 class="post-title">{{ post.titulo }}</h2>
+                    <h3 class="post-subtitle">{{ post.subtitulo }}</h3>
+                </a>
+                <p class="post-meta">
+                    Publicado por
+                    <a href="#">{{ post.autor }}</a>
+                    el {{ post.fecha_publicacion|date:"d M, Y" }}
+                </p>
+            </div>
+            <hr class="my-4" />
+            {% endfor %}
+            {% if user.is_authenticated %}
+            <div class="center-button">
+                <a href="{% url 'listar_publicaciones' %}" class="btn btn-primary">Ver Todas las Publicaciones</a>
+            </div>
+            {% endif %}
+            
+    </div>
+</div>
+{% endblock %}
+
+
